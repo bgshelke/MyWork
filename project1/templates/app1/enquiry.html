@@ -1,18 +1,19 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
     <title>Title</title>
-</head>
-<body>
+    {% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
     <h1>Enquiry Form</h1>
 <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="SUBMIT">
-    <input type="reset" value="RESET">
+    {{ form|crispy }}
+    <input type="submit" value="SUBMIT" class="btn btn-outline-success col-5">
+    <input type="reset" value="RESET" class="btn btn-outline-warning col-5 float-right">
 </form>
+</div>
 
-</body>
-</html>
+{% endblock %}
